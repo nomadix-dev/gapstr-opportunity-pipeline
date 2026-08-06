@@ -173,6 +173,7 @@ try {
         arguments: {
             owner: githubOwner,
             repo: githubRepo,
+            state: 'OPEN',
             perPage: 100,
             fields: [
                 'number',
@@ -290,16 +291,6 @@ try {
             } catch {
                 issueWriteResult = writeRaw;
             }
-        }
-
-        if (writeResponse.isError) {
-            throw new Error(
-                `GitHub issue creation failed: ${
-                    typeof issueWriteResult === 'string'
-                        ? issueWriteResult
-                        : JSON.stringify(issueWriteResult)
-                }`,
-            );
         }
 
         wroteToGithub = true;
