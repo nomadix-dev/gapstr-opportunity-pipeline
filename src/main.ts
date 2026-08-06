@@ -173,7 +173,6 @@ try {
         arguments: {
             owner: githubOwner,
             repo: githubRepo,
-            state: 'OPEN',
             perPage: 100,
             fields: [
                 'number',
