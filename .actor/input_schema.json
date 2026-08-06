@@ -1,0 +1,48 @@
+{
+  "$schema": "https://apify.com/schemas/v1/input.ide.json",
+  "title": "Gapstr Opportunity Pipeline",
+  "description": "Collects public product signals and prepares them for Gapstr analysis.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "query": {
+      "title": "Search query",
+      "type": "string",
+      "description": "Topic or problem area to search for.",
+      "editor": "textfield",
+      "default": "AI developer tools"
+    },
+    "maxItems": {
+      "title": "Maximum items",
+      "type": "integer",
+      "description": "Maximum number of public signals to collect.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "dryRun": {
+      "title": "Dry run",
+      "type": "boolean",
+      "description": "When enabled, the Actor collects and structures signals without writing to connected external services.",
+      "default": true
+    },
+    "githubConnector": {
+      "title": "GitHub MCP connector",
+      "type": "string",
+      "description": "GitHub connector used to search and create issues in the test repository.",
+      "editor": "resourcePicker",
+      "resourceType": "mcpConnector",
+      "mcpServers": [
+        {
+          "url": "https://api.githubcopilot.com/mcp/"
+        }
+      ]
+    }
+  },
+  "required": [
+    "query",
+    "maxItems",
+    "dryRun",
+    "githubConnector"
+  ]
+}
