@@ -293,17 +293,17 @@ try {
         }
 
         if (writeResponse.isError) {
-    throw new Error(
-        `GitHub issue creation failed: ${
-            typeof issueWriteResult === 'string'
-                ? issueWriteResult
-                : JSON.stringify(issueWriteResult)
-        }`,
-    );
-}
+            throw new Error(
+                `GitHub issue creation failed: ${
+                    typeof issueWriteResult === 'string'
+                        ? issueWriteResult
+                        : JSON.stringify(issueWriteResult)
+                }`,
+            );
+        }
 
-wroteToGithub = true;
-action = 'issue_created';
+        wroteToGithub = true;
+        action = 'issue_created';
     }
 
     await Actor.pushData({
